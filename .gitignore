@@ -1,0 +1,13 @@
+# setting 
+.env
+.gitignore 
+
+# OS
+.DS_Store*
+
+# DB and log
+*.log
+*.sqlite3*
+*.sublime*
+*.pyc
+*.swp
