@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'photo',
+    'profiles',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'pystagram.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,13 +103,14 @@ USE_TZ = True
 
 STATIC_URL = '/assets/'
 
-MEDIA_URL = '/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static_files')
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_statics')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    ('byebye', os.path.join(BASE_DIR, 'static2')),
-    # os.path.join(BASE_DIR, 'static2'),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'collected_statics')
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded_files')
+
+LOGIN_REDIRECT_URL = '/photo/upload/'
+
